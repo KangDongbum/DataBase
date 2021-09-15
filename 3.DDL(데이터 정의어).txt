@@ -111,6 +111,7 @@ ALTER - TABLE 변경
 		|AFTER 속성명] -> 속성명 뒤에 테이블 속성 추가,변경... 
 		[FIRST 속성명] -> 테이블의 가장 첫 속성명으로 추가
 		[ADD PRIMARY KEY(속성명(들))] 
+		[ADD FOREIGN KEY(속성이름) REFERENCES 테이블명(속성명) ...]
 		[ADD | DROP 제약조건]
 		
 3-37 NewBook 테이블에 VARCHAR(13)의 자료형을 가진 isbn 속성을 추가하시오

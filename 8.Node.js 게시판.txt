@@ -1,0 +1,61 @@
+1. npm init - package.json
+		script - 사용자 정의 명령어
+			   - 개발중 nodemon
+			   - 서비스중 pm2, NODE_ENV - 환경변수 production
+							(로그기록, DB 계정 설정)
+							cross-env PORT NODE_ENV PORT=443
+							
+2. 모듈(패키지)
+	express morgan dotenv cookie-parser express-session nunjucks pm2 cross-env winston
+	
+	nodemon
+
+3. app.js
+	미들웨어 + 라우터
+	
+	
+	
+	Request - 미들웨어 - Response
+	
+	app.get("/", function(req, res, next) {
+		res.render
+		res.send ...
+	});
+	
+	요청 -> 미들웨어 처리 -> 응답(출력) -> 종료
+						  next()         next()
+	요청 -> 미들웨어1 -> 미들웨어2 -> 미들웨어3 ... -> 응답(res.send, res.json, res.render)
+	
+app.get("/", function(req, res, next) {
+		next();
+	}, function(req,res,next){
+		next();
+});	
+
+app.get("/", function(req, res, next) {
+		next();
+	});
+	
+app.get("/", function(req, res, next) {
+	res.send("출력 완료!");
+});
+
+
+개발중 -> 3000, 3001
+서비스 중 - 80(http), 443(https)
+
+4. 필수 모듈(패키지)
+
+10. 라우터 
+메인페이지 라우터 - index.js
+게시판 라우터 - board.js
+
+Request 입력 데이터
+GET 쿼리스트링 방식의 데이터 키=값&키=값
+	req.query
+
+GET URL 인수 형태 /:id
+	req.params
+
+POST 방식의 데이터
+	req.body
